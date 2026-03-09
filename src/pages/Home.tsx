@@ -5,51 +5,83 @@ import { motion } from 'motion/react';
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-stone-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://picsum.photos/seed/youth/1920/1080?blur=2"
-            alt="Młodzież w akcji"
-            className="w-full h-full object-cover opacity-40"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/60 to-transparent" />
-        </div>
+      {/* Personalized Youth Section (Replaces Hero) */}
+      <section className="relative bg-emerald-600 text-white overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-emerald-500 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-72 h-72 bg-emerald-700 rounded-full blur-3xl opacity-50"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-48 flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block py-1 px-3 rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-semibold tracking-wider uppercase mb-6 border border-emerald-500/30">
-              Stowarzyszenie Akwedukt
-            </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-              Działaj lokalnie, <br className="hidden md:block" />
-              <span className="text-emerald-400">myśl globalnie.</span>
-            </h1>
-            <p className="mt-4 text-xl text-stone-300 max-w-2xl mx-auto mb-10">
-              Tworzymy przestrzeń dla młodzieży i mieszkańców Kwidzyna. Dołącz do nas, rozwijaj pasje, poznawaj świat i zmieniaj swoje otoczenie.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/oferta"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full text-stone-900 bg-emerald-400 hover:bg-emerald-300 transition-colors shadow-lg shadow-emerald-500/30"
-              >
-                Dołącz do nas
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link
-                to="/wesprzyj-nas"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 transition-colors"
-              >
-                <Heart className="mr-2 w-5 h-5 text-emerald-400" />
-                Wesprzyj nas
-              </Link>
-            </div>
-          </motion.div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-2xl"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-emerald-50 text-sm font-bold tracking-wide uppercase mb-8">
+                <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+                Dla Młodzieży
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
+                Hej! Szukasz pomysłu <br className="hidden md:block" />
+                <span className="text-emerald-200">na siebie?</span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-emerald-50 mb-10 leading-relaxed font-medium">
+                Akwedukt to Twoja przestrzeń w Kwidzynie. Wpadnij po szkole, poznaj ludzi z całego świata, zorganizuj własne wydarzenie lub wyjedź z nami na wolontariat za granicę!
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/oferta"
+                  className="group inline-flex items-center justify-center px-8 py-5 text-lg font-bold rounded-2xl text-emerald-900 bg-white hover:bg-emerald-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                >
+                  <Users className="mr-3 w-6 h-6 text-emerald-600 group-hover:scale-110 transition-transform" />
+                  Odkryj ofertę dla młodzieży
+                </Link>
+                <Link
+                  to="/kontakt"
+                  className="inline-flex items-center justify-center px-8 py-5 text-lg font-bold rounded-2xl text-white bg-emerald-700 hover:bg-emerald-800 transition-colors border border-emerald-500"
+                >
+                  Napisz do nas
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Visual Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative lg:ml-auto w-full max-w-lg mx-auto lg:max-w-none"
+            >
+              <div className="aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden relative shadow-2xl border-4 border-white/10 rotate-2 hover:rotate-0 transition-transform duration-500">
+                <img
+                  src="https://picsum.photos/seed/youth-active/800/1000"
+                  alt="Młodzież spędzająca czas w Akwedukcie"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Floating badge */}
+                <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-xl">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 shrink-0">
+                      <Coffee className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-stone-900 font-bold text-lg">Przestrzeń dla Ciebie</p>
+                      <p className="text-stone-600 text-sm font-medium">Otwarte codziennie 14:00-18:00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
