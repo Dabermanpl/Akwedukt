@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Personalized Youth Section (Replaces Hero) */}
-      <section className="relative bg-emerald-600 text-white overflow-hidden">
+      <section className="relative bg-emerald-600 text-white overflow-hidden min-h-[calc(100vh-5rem)] flex flex-col justify-center">
         {/* Background decorative elements */}
         <div className="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-emerald-500 rounded-full blur-3xl opacity-50"></div>
         <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-72 h-72 bg-emerald-700 rounded-full blur-3xl opacity-50"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             
             {/* Text Content */}
